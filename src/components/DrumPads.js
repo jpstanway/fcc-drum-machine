@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-class DrumPads extend Component {
+class DrumPads extends Component {
     render() {
         return(
             <div id="drum-pads">
-                <button className="drum-pad">Drum Pad 1</button>
-                <button className="drum-pad">Drum Pad 2</button>
-                <button className="drum-pad">Drum Pad 3</button>
-                <button className="drum-pad">Drum Pad 4</button>
-                <button className="drum-pad">Drum Pad 5</button>
-                <button className="drum-pad">Drum Pad 6</button>
-                <button className="drum-pad">Drum Pad 7</button>
-                <button className="drum-pad">Drum Pad 8</button>
-                <button className="drum-pad">Drum Pad 9</button>
+                <button className="drum-pad">Q</button>
+                <button className="drum-pad">W</button>
+                <button className="drum-pad">E</button>
+                <button className="drum-pad">A</button>
+                <button className="drum-pad">S</button>
+                <button className="drum-pad">D</button>
+                <button className="drum-pad">Z</button>
+                <button className="drum-pad">X</button>
+                <button className="drum-pad">C</button>
             </div>
         );
     }
