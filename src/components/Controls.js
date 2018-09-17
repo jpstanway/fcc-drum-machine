@@ -14,7 +14,7 @@ class Controls extends Component {
                     <Button variant="contained">bank</Button>
                 </div>
                 <div id="volume-control">
-                    <Slider id="volume" vertical={true} />
+                    <Slider id="volume" vertical={true} reverse={true} value={50} />
                 </div>
                 <div id="power">
                     <div className="led led-active"></div>
