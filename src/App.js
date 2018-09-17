@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Display from './components/Display';
+import { Grid } from '@material-ui/core';
 import DrumPads from './components/DrumPads';
+import Interface from './components/Interface';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -13,9 +14,17 @@ class DrumMachine extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div id="drum-machine">
-          <Display />
-          <DrumPads />
+        <div id="container">
+          <Grid
+            id="drum-machine"
+            container 
+            justify="center"
+            spacing={8}
+            xs={12}
+          >
+            <DrumPads />
+            <Interface />
+          </Grid>
         </div>
       </Provider>
     );

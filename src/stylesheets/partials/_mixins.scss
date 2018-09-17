@@ -1,0 +1,4 @@
+@mixin vertical-sizing($height, $margin) {
+    height: $height;
+    margin: $margin;
+}

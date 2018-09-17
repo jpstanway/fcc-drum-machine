@@ -1,2 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
 h1 {
   text-transform: uppercase; }
+
+#container {
+  text-align: center;
+  max-width: 960px;
+  height: 55vh;
+  margin: 20% auto;
+  background-color: lightgray; }
+
+#drum-machine {
+  height: 100%; }
+
+#drum-pads .drum-pad {
+  height: 100%; }
+
+#interface #display {
+  height: 20%;
+  background-color: lightblue; }
+
+#interface #controls {
+  height: 80%;
+  background-color: red; }
+  #interface #controls #bank {
+    margin: 10px 0; }
+  #interface #controls #volume-control {
+    height: 60%;
+    margin: 10% 0 20% 0; }
+    #interface #controls #volume-control #volume {
+      width: auto; }
+  #interface #controls #power {
+    margin: 10px 0; }
+  #interface #controls .led {
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    margin: 7px auto;
+    background-color: gray; }
+  #interface #controls .bank-led {
+    margin: auto; }
+    #interface #controls .bank-led .led {
+      display: inline-block;
+      margin: 7px; }
+  #interface #controls .led-active {
+    background-color: yellow; }

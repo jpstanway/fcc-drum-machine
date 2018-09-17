@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 @import 'partials/variables';
 @import 'partials/mixins';
 @import 'partials/animations';
@@ -5,3 +6,77 @@
 h1 {
     text-transform: uppercase;
 }
+
+#container {
+    text-align: center;
+    max-width: 960px;
+    height: 55vh;
+    margin: 20% auto;
+    background-color: lightgray;
+}
+
+#drum-machine {
+    height: 100%;
+}
+
+#drum-pads {
+    .drum-pad {
+        height: 100%;
+    }
+}
+
+#interface {
+
+    #display {
+        height: 20%;
+        background-color: lightblue;
+    }
+
+    #controls {
+        height: 80%;
+        background-color: red;
+
+        #bank {
+            margin: 10px 0;
+        }
+    
+        #volume-control {
+            height: 60%;
+            margin: 10% 0 20% 0;
+
+            #volume {
+                width: auto;
+            }
+        }
+
+        #power {
+            margin: 10px 0;
+        }
+
+        .led {
+            height: 7px;
+            width: 7px;
+            border-radius: 50%;
+            margin: 7px auto;
+            background-color: gray;
+        }
+
+        .bank-led {
+            margin: auto;
+
+            .led {
+                display: inline-block;
+                margin: 7px;
+            }
+        }
+
+        .led-active {
+            background-color: yellow;
+        }
+    }
+}
+
+
+
+
+

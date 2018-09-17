@@ -1,19 +1,45 @@
 import React, { Component } from 'react';
+import { Grid, Button } from '@material-ui/core';
 
 class DrumPads extends Component {
     render() {
         return(
-            <div id="drum-pads">
-                <button className="drum-pad">Q</button>
-                <button className="drum-pad">W</button>
-                <button className="drum-pad">E</button>
-                <button className="drum-pad">A</button>
-                <button className="drum-pad">S</button>
-                <button className="drum-pad">D</button>
-                <button className="drum-pad">Z</button>
-                <button className="drum-pad">X</button>
-                <button className="drum-pad">C</button>
-            </div>
+            <Grid 
+                id="drum-pads"
+                item
+                container
+                xs={9}
+                spacing={8}
+            >
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">Q</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">W</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">E</Button>
+                </Grid>
+
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">A</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">S</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">D</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">Z</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">X</Button>
+                </Grid>
+                <Grid item xs={4}>
+                    <Button className="drum-pad" fullWidth={true} variant="contained" color="primary">C</Button>
+                </Grid>
+            </Grid>
         );
     }
 }
