@@ -12,7 +12,7 @@ class Interface extends Component {
                 container
                 xs={3}
             >
-                <Display text={this.props.displayText} />
+                <Display />
                 <Controls />
             </Grid>
         );

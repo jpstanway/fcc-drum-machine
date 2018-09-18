@@ -24,11 +24,11 @@
 
 #interface {
 
-    #display {
+    #display-div {
         height: 20%;
         background-color: lightblue;
 
-        p {
+        #display {
             text-transform: uppercase;
         }
     }

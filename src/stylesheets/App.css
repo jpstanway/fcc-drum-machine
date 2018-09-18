@@ -12,10 +12,10 @@
 #drum-pads .drum-pad {
   height: 100%; }
 
-#interface #display {
+#interface #display-div {
   height: 20%;
   background-color: lightblue; }
-  #interface #display p {
+  #interface #display-div #display {
     text-transform: uppercase; }
 
 #interface #controls {
