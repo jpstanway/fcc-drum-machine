@@ -3,9 +3,6 @@
 @import 'partials/mixins';
 @import 'partials/animations';
 
-h1 {
-    text-transform: uppercase;
-}
 
 #container {
     text-align: center;
@@ -30,6 +27,10 @@ h1 {
     #display {
         height: 20%;
         background-color: lightblue;
+
+        p {
+            text-transform: uppercase;
+        }
     }
 
     #controls {

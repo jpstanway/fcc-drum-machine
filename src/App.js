@@ -13,7 +13,7 @@ class DrumMachine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      display: ''
     }
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -25,18 +25,26 @@ class DrumMachine extends Component {
 
   handleClick(e) {
     const button = $(e.target).text();
-    const audio = $(`#${button}`)[0];
-    audio.play();
+    const audio = $(`#${button}`);
+    audio[0].play();
+    
+    this.setState({
+      display: e.target.id
+    });
   }
 
   handleKeyPress(e) {
     const key = String.fromCharCode(e.keyCode);
-    const audio = $(`#${key}`)[0];
+    const audio = $(`#${key}`);
 
     if(audio) {
-      audio.play();
+      audio[0].play();
+
+      const name = audio.parents('button')[0].id;
+      this.setState({
+        display: name
+      });      
     }
-    
   }
 
   render() {
@@ -50,7 +58,7 @@ class DrumMachine extends Component {
             spacing={8}
           >
             <DrumPads click={this.handleClick} />
-            <Interface />
+            <Interface displayText={this.state.display} />
           </Grid>
         </div>
       </Provider>

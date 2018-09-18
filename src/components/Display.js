@@ -5,7 +5,7 @@ class Display extends Component {
     render() {
         return(
             <Grid id="display" item xs={12}>
-                <h1>Display Here</h1>
+                <p>{this.props.text}</p>
             </Grid>
         );
     }

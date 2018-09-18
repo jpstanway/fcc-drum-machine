@@ -1,7 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500");
-h1 {
-  text-transform: uppercase; }
-
 #container {
   text-align: center;
   max-width: 960px;
@@ -18,6 +15,8 @@ h1 {
 #interface #display {
   height: 20%;
   background-color: lightblue; }
+  #interface #display p {
+    text-transform: uppercase; }
 
 #interface #controls {
   height: 80%;
