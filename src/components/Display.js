@@ -3,11 +3,12 @@ import { Grid } from '@material-ui/core';
 
 class Display extends Component {
     render() {
-        const led = this.props.ledActive;
+        const { ledActive, power } = this.props;
+        const display = power ? (ledActive ? 'bank 1' : 'bank 2') : '';
 
         return(
             <Grid id="display-div" item xs={12}>
-                <p id="display">{led ? 'bank 1' : 'bank 2'}</p>
+                <p id="display">{display}</p>
             </Grid>
         );
     }

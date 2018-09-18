@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import { Grid, Button } from '@material-ui/core';
 
 class DrumPads extends Component {
+
     render() {
+        const { handleClick, bank, power } = this.props;
+
         return(
             <Grid 
                 id="drum-pads"
@@ -11,7 +14,7 @@ class DrumPads extends Component {
                 xs={9}
                 spacing={8}
             >
-                {this.props.bank.map(obj => {
+                {bank.map(obj => {
                     return(
                         <Grid item xs={4} key={obj.id}>
                             <Button
@@ -20,7 +23,8 @@ class DrumPads extends Component {
                                 fullWidth={true}
                                 variant="contained"
                                 color="primary"
-                                onClick={this.props.click}
+                                disabled={!power}
+                                onClick={handleClick}
                             >
                                 {obj.key}
                                 <audio

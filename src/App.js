@@ -17,12 +17,14 @@ class DrumMachine extends Component {
     this.state = {
       bank: Bank,
       bankIndex: 0,
-      ledActive: true
+      ledActive: true,
+      power: true
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.switchBank = this.switchBank.bind(this);
+    this.togglePower = this.togglePower.bind(this);
   }
 
   componentDidMount() {
@@ -58,8 +60,14 @@ class DrumMachine extends Component {
     
   }
 
+  togglePower() {
+    this.setState({
+      power: !this.state.power
+    });
+  }
+
   render() {
-    const { bank, bankIndex, ledActive } = this.state;
+    const { bank, bankIndex, ledActive, power } = this.state;
 
     return (
       <Provider store={store}>
@@ -70,8 +78,8 @@ class DrumMachine extends Component {
             justify="center"
             spacing={8}
           >
-            <DrumPads click={this.handleClick} bank={bank[bankIndex]} />
-            <Interface bankBtn={this.switchBank} ledActive={ledActive} />
+            <DrumPads handleClick={this.handleClick} bank={bank[bankIndex]} power={power} />
+            <Interface switchBank={this.switchBank} ledActive={ledActive} power={power} togglePower={this.togglePower} />
           </Grid>
         </div>
       </Provider>
