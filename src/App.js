@@ -16,12 +16,27 @@ class DrumMachine extends Component {
 
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
   }
 
   handleClick(e) {
     const button = $(e.target).text();
     const audio = $(`#${button}`)[0];
     audio.play();
+  }
+
+  handleKeyPress(e) {
+    const key = String.fromCharCode(e.keyCode);
+    const audio = $(`#${key}`)[0];
+
+    if(audio) {
+      audio.play();
+    }
+    
   }
 
   render() {
