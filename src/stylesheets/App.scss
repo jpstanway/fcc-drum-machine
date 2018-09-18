@@ -19,6 +19,10 @@
 #drum-pads {
     .drum-pad {
         height: 100%;
+
+        span {
+            pointer-events: none;
+        }
     }
 }
 

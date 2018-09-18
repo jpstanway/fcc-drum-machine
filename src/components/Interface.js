@@ -12,8 +12,8 @@ class Interface extends Component {
                 container
                 xs={3}
             >
-                <Display />
-                <Controls />
+                <Display ledActive={this.props.ledActive} />
+                <Controls switchBank={this.props.bankBtn} ledActive={this.props.ledActive} />
             </Grid>
         );
     }

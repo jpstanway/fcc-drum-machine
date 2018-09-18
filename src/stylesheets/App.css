@@ -11,6 +11,8 @@
 
 #drum-pads .drum-pad {
   height: 100%; }
+  #drum-pads .drum-pad span {
+    pointer-events: none; }
 
 #interface #display-div {
   height: 20%;

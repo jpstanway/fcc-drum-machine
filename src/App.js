@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { Grid } from '@material-ui/core';
 import DrumPads from './components/DrumPads';
 import Interface from './components/Interface';
+import Bank from './components/Bank';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -13,8 +14,15 @@ class DrumMachine extends Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      bank: Bank,
+      bankIndex: 0,
+      ledActive: true
+    }
+
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.switchBank = this.switchBank.bind(this);
   }
 
   componentDidMount() {
@@ -32,9 +40,8 @@ class DrumMachine extends Component {
 
   handleKeyPress(e) {
     const key = String.fromCharCode(e.keyCode);
-    const audio = $(`#${key}`);
-    
-    if(audio) {
+    if(key.search(/[Q|W|E|A|S|D|Z|X|C]/i) > -1) {
+      const audio = $(`#${key}`);
       audio[0].currentTime = 0;
       audio[0].play();
 
@@ -43,7 +50,17 @@ class DrumMachine extends Component {
     }
   }
 
+  switchBank() {
+    this.setState({
+      bankIndex: this.state.bankIndex === 0 ? 1 : 0,
+      ledActive: !this.state.ledActive
+    });
+    
+  }
+
   render() {
+    const { bank, bankIndex, ledActive } = this.state;
+
     return (
       <Provider store={store}>
         <div id="container">
@@ -53,8 +70,8 @@ class DrumMachine extends Component {
             justify="center"
             spacing={8}
           >
-            <DrumPads click={this.handleClick} />
-            <Interface />
+            <DrumPads click={this.handleClick} bank={bank[bankIndex]} />
+            <Interface bankBtn={this.switchBank} ledActive={ledActive} />
           </Grid>
         </div>
       </Provider>
