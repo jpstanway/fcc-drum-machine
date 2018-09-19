@@ -25,11 +25,11 @@
   background-color: red; }
   #interface #controls #bank {
     margin: 10px 0; }
-  #interface #controls #volume-control {
-    height: 60%;
-    margin: 10% 0 20% 0; }
-    #interface #controls #volume-control #volume {
-      width: auto; }
+  #interface #controls #volume-control #volume {
+    display: flex;
+    height: 300px;
+    width: 1px;
+    margin: auto; }
   #interface #controls #power {
     margin: 10px 0; }
   #interface #controls .led {

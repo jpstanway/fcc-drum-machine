@@ -5,7 +5,7 @@ import Controls from './Controls';
 
 class Interface extends Component {
     render() {
-        const { switchBank, ledActive, power, togglePower } = this.props;
+        const { switchBank, ledActive, power, togglePower, handleVolume, volume } = this.props;
 
         return(
             <Grid 
@@ -14,8 +14,15 @@ class Interface extends Component {
                 container
                 xs={3}
             >
-                <Display ledActive={ledActive} power={power} />
-                <Controls switchBank={switchBank} ledActive={ledActive} power={power} togglePower={togglePower} />
+                <Display ledActive={ledActive} power={power} volume={volume} />
+                <Controls 
+                    switchBank={switchBank} 
+                    ledActive={ledActive} 
+                    power={power} 
+                    togglePower={togglePower} 
+                    handleVolume={handleVolume}
+                    volume={volume}
+                />
             </Grid>
         );
     }

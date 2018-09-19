@@ -4,7 +4,7 @@ import { Slider } from '@material-ui/lab';
 
 class Controls extends Component {
     render() {
-        const { switchBank, ledActive, power, togglePower } = this.props;
+        const { switchBank, ledActive, power, togglePower, handleVolume, volume } = this.props;
 
         return(
             <Grid id="controls" item xs={12}>
@@ -16,7 +16,14 @@ class Controls extends Component {
                     <Button variant="contained" disabled={!power} onClick={switchBank}>bank</Button>
                 </div>
                 <div id="volume-control">
-                    <Slider id="volume" vertical={true} reverse={true} value={50} />
+                    <Slider 
+                        id="volume" 
+                        vertical={true} 
+                        reverse={true} 
+                        value={volume} 
+                        step={1} 
+                        onChange={handleVolume} 
+                    />
                 </div>
                 <div id="power">
                     <div className={`led ${power ? 'led-active' : ''}`}></div>

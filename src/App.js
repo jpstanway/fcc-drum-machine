@@ -18,11 +18,14 @@ class DrumMachine extends Component {
       bank: Bank,
       bankIndex: 0,
       ledActive: true,
-      power: true
+      power: true,
+      volume: 50
     }
 
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handleVolume = this.handleVolume.bind(this);
+    this.playSound = this.playSound.bind(this);
     this.switchBank = this.switchBank.bind(this);
     this.togglePower = this.togglePower.bind(this);
   }
@@ -34,8 +37,7 @@ class DrumMachine extends Component {
   handleClick(e) {
     const button = $(e.target).text();
     const audio = $(`#${button}`);
-    audio[0].currentTime = 0;
-    audio[0].play();
+    this.playSound(audio[0]);
     
     $('#display').text(e.target.id);
   }
@@ -44,12 +46,23 @@ class DrumMachine extends Component {
     const key = String.fromCharCode(e.keyCode);
     if(key.search(/[Q|W|E|A|S|D|Z|X|C]/i) > -1) {
       const audio = $(`#${key}`);
-      audio[0].currentTime = 0;
-      audio[0].play();
+      this.playSound(audio[0]);
 
       const name = audio.parents('button')[0].id;
       $('#display').text(name);
     }
+  }
+
+  handleVolume(event, value) {
+    this.setState({ 
+      volume: value 
+    });
+  }
+
+  playSound(sound) {
+    sound.currentTime = 0;
+    sound.volume = this.state.volume * 0.01;
+    sound.play();
   }
 
   switchBank() {
@@ -67,7 +80,7 @@ class DrumMachine extends Component {
   }
 
   render() {
-    const { bank, bankIndex, ledActive, power } = this.state;
+    const { bank, bankIndex, ledActive, power, volume } = this.state;
 
     return (
       <Provider store={store}>
@@ -79,7 +92,14 @@ class DrumMachine extends Component {
             spacing={8}
           >
             <DrumPads handleClick={this.handleClick} bank={bank[bankIndex]} power={power} />
-            <Interface switchBank={this.switchBank} ledActive={ledActive} power={power} togglePower={this.togglePower} />
+            <Interface 
+              switchBank={this.switchBank} 
+              ledActive={ledActive} 
+              power={power} 
+              togglePower={this.togglePower} 
+              handleVolume={this.handleVolume} 
+              volume={volume}
+            />
           </Grid>
         </div>
       </Provider>

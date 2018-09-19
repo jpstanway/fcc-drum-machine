@@ -46,11 +46,11 @@
         }
     
         #volume-control {
-            height: 60%;
-            margin: 10% 0 20% 0;
-
             #volume {
-                width: auto;
+               display: flex; 
+               height: 300px;
+               width: 1px;
+               margin: auto;
             }
         }
 
