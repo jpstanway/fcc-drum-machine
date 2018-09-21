@@ -3,26 +3,31 @@
   text-align: center;
   max-width: 960px;
   height: 55vh;
-  margin: 20% auto;
-  background-color: lightgray; }
+  margin: 20% auto; }
 
 #drum-machine {
-  height: 100%; }
+  height: 100%;
+  background-color: #363636; }
+  #drum-machine .button {
+    background-color: #B7B7B7; }
 
 #drum-pads .drum-pad {
-  height: 100%; }
+  height: 100%;
+  color: black; }
   #drum-pads .drum-pad span {
     pointer-events: none; }
 
 #interface #display-div {
-  height: 20%;
-  background-color: lightblue; }
+  border: 0.5px solid black;
+  height: 92px;
+  margin: 20px;
+  border-radius: 4px;
+  background-color: rgba(187, 60, 70, 0.6); }
   #interface #display-div #display {
     text-transform: uppercase; }
 
 #interface #controls {
-  height: 80%;
-  background-color: red; }
+  height: 80%; }
   #interface #controls #bank {
     margin: 10px 0; }
   #interface #controls #volume-control #volume {
@@ -33,11 +38,12 @@
   #interface #controls #power {
     margin: 10px 0; }
   #interface #controls .led {
+    border: 0.5px solid black;
     height: 7px;
     width: 7px;
     border-radius: 50%;
     margin: 7px auto;
-    background-color: gray; }
+    background-color: rgba(110, 35, 41, 0.6); }
   #interface #controls .bank-led {
     margin: auto; }
     #interface #controls .bank-led .led {
@@ -45,3 +51,15 @@
       margin: 7px; }
   #interface #controls .led-active {
     background-color: yellow; }
+
+.classes-state-thumb {
+  width: 20px !important;
+  height: 40px !important;
+  border-radius: 0 !important;
+  background-color: #535353 !important; }
+
+.classes-state-trackBefore {
+  background-color: black !important; }
+
+.classes-state-trackAfter {
+  background-color: #595959 !important; }

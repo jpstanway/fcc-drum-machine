@@ -38,7 +38,7 @@ class Controls extends Component {
                         <div className={`led ${led && power ? 'led-active' : ''}`}></div>
                         <div className={`led ${!led && power ? 'led-active' : ''}`}></div>
                     </div>
-                    <Button variant="contained" disabled={!power} onClick={this.switchBank}>bank</Button>
+                    <Button className="button" variant="contained" disabled={!power} onClick={this.switchBank}>bank</Button>
                 </div>
                 <div id="volume-control">
                     <Slider 
@@ -48,11 +48,16 @@ class Controls extends Component {
                         value={volume} 
                         step={1} 
                         onChange={this.onChange} 
+                        classes={{ 
+                            thumb: 'classes-state-thumb',
+                            trackBefore: 'classes-state-trackBefore',
+                            trackAfter: 'classes-state-trackAfter' 
+                        }}
                     />
                 </div>
                 <div id="power">
                     <div className={`led ${power ? 'led-active' : ''}`}></div>
-                    <Button variant="contained" onClick={toggleOnOff}>On/Off</Button>
+                    <Button className="button" variant="contained" onClick={toggleOnOff}>On/Off</Button>
                 </div>
             </Grid>
         );

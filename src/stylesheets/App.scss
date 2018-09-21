@@ -9,16 +9,21 @@
     max-width: 960px;
     height: 55vh;
     margin: 20% auto;
-    background-color: lightgray;
 }
 
 #drum-machine {
     height: 100%;
+    background-color: $drum-machine-bg;
+
+    .button {
+        background-color: $buttons-bg;
+    }
 }
 
 #drum-pads {
     .drum-pad {
         height: 100%;
+        color: black;
 
         span {
             pointer-events: none;
@@ -27,10 +32,12 @@
 }
 
 #interface {
-
     #display-div {
-        height: 20%;
-        background-color: lightblue;
+        @include thin-border;
+        height: 92px;
+        margin: 20px;
+        border-radius: 4px;
+        background-color: lighten($led-bg, 20%);
 
         #display {
             text-transform: uppercase;
@@ -39,7 +46,6 @@
 
     #controls {
         height: 80%;
-        background-color: red;
 
         #bank {
             margin: 10px 0;
@@ -59,11 +65,12 @@
         }
 
         .led {
+            @include thin-border;
             height: 7px;
             width: 7px;
             border-radius: 50%;
             margin: 7px auto;
-            background-color: gray;
+            background-color: $led-bg;
         }
 
         .bank-led {
@@ -81,7 +88,20 @@
     }
 }
 
+.classes-state-thumb {
+    width: 20px !important;
+    height: 40px !important;
+    border-radius: 0 !important;
+    background-color: lighten(#464646, 5%) !important;
+}
 
+.classes-state-trackBefore {
+    background-color: black !important;
+}
+
+.classes-state-trackAfter {
+    background-color: lighten(black, 35%) !important;
+}
 
 
 

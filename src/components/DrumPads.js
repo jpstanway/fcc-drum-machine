@@ -70,7 +70,7 @@ class DrumPads extends Component {
                         <Grid item xs={4} key={obj.id}>
                             <Button
                                 id={obj.id}
-                                className="drum-pad"
+                                className="drum-pad button"
                                 fullWidth={true}
                                 variant="contained"
                                 color="primary"
