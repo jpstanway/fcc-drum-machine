@@ -10,17 +10,22 @@ class DrumPads extends Component {
     constructor(props) {
     super(props);
 
+    this.toggleEvent = this.toggleEvent.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.playSound = this.playSound.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.getSounds(0);
     }
 
-    componentDidMount() {
-        document.addEventListener('keydown', this.handleKeyPress);
+    toggleEvent(power) {
+        if(power) {
+            document.addEventListener('keydown', this.handleKeyPress);
+        } else {
+            document.removeEventListener('keydown', this.handleKeyPress);
+        }
     }
 
     handleClick(e) {
@@ -50,6 +55,7 @@ class DrumPads extends Component {
 
     render() {
         const { sounds, power } = this.props;
+        this.toggleEvent(power);
 
         return(
             <Grid 
