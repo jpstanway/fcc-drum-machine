@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Grid } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Display from './Display';
 import Controls from './Controls';
 
+import { Grid } from '@material-ui/core';
+
 class Interface extends Component {
     render() {
-        const { switchBank, ledActive, power, togglePower, handleVolume, volume } = this.props;
+        const { led, power, volume } = this.props;
 
         return(
             <Grid 
@@ -14,13 +17,10 @@ class Interface extends Component {
                 container
                 xs={3}
             >
-                <Display ledActive={ledActive} power={power} volume={volume} />
+                <Display led={led} power={power} volume={volume} />
                 <Controls 
-                    switchBank={switchBank} 
-                    ledActive={ledActive} 
-                    power={power} 
-                    togglePower={togglePower} 
-                    handleVolume={handleVolume}
+                    led={led} 
+                    power={power}
                     volume={volume}
                 />
             </Grid>
@@ -28,4 +28,16 @@ class Interface extends Component {
     }
 }
 
-export default Interface;
+Interface.propTypes = {
+    power: PropTypes.bool.isRequired,
+    led: PropTypes.bool.isRequired,
+    volume: PropTypes.number.isRequired
+}
+
+const mapStateToProps = state => ({
+    power: state.audio.power,
+    led: state.audio.led,
+    volume: state.audio.volume
+});
+
+export default connect(mapStateToProps, {})(Interface);

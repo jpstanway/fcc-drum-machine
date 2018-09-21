@@ -1,10 +1,55 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import $ from 'jquery';
+import { getSounds } from '../actions/audioActions';
+
 import { Grid, Button } from '@material-ui/core';
 
 class DrumPads extends Component {
+    constructor(props) {
+    super(props);
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.playSound = this.playSound.bind(this);
+    }
+
+    componentWillMount() {
+        this.props.getSounds(0);
+    }
+
+    componentDidMount() {
+        document.addEventListener('keydown', this.handleKeyPress);
+    }
+
+    handleClick(e) {
+        const button = $(e.target).text();
+        const audio = $(`#${button}`);
+        this.playSound(audio[0]);
+        
+        $('#display').text(e.target.id);
+    }
+
+    handleKeyPress(e) {
+        const key = String.fromCharCode(e.keyCode);
+        if(key.search(/[Q|W|E|A|S|D|Z|X|C]/i) > -1) {
+            const audio = $(`#${key}`);
+            this.playSound(audio[0]);
+
+            const name = audio.parents('button')[0].id;
+            $('#display').text(name);
+        }
+    }
+
+    playSound(sound) {
+    sound.currentTime = 0;
+    sound.volume = this.props.volume * 0.01;
+    sound.play();
+    }
 
     render() {
-        const { handleClick, bank, power } = this.props;
+        const { sounds, power } = this.props;
 
         return(
             <Grid 
@@ -14,7 +59,7 @@ class DrumPads extends Component {
                 xs={9}
                 spacing={8}
             >
-                {bank.map(obj => {
+                {sounds.map(obj => {
                     return(
                         <Grid item xs={4} key={obj.id}>
                             <Button
@@ -24,7 +69,7 @@ class DrumPads extends Component {
                                 variant="contained"
                                 color="primary"
                                 disabled={!power}
-                                onClick={handleClick}
+                                onClick={this.handleClick}
                             >
                                 {obj.key}
                                 <audio
@@ -41,4 +86,17 @@ class DrumPads extends Component {
     }
 }
 
-export default DrumPads;
+DrumPads.propTypes = {
+    getSounds: PropTypes.func.isRequired,
+    sounds: PropTypes.array.isRequired,
+    power: PropTypes.bool.isRequired,
+    volume: PropTypes.number.isRequired
+}
+
+const mapStateToProps = state => ({
+    sounds: state.audio.sounds,
+    power: state.audio.power,
+    volume: state.audio.volume
+});
+
+export default connect(mapStateToProps, { getSounds })(DrumPads);

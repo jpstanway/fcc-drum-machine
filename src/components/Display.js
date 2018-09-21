@@ -3,8 +3,8 @@ import { Grid } from '@material-ui/core';
 
 class Display extends Component {
     render() {
-        const { ledActive, power, volume } = this.props;
-        const display = power ? (ledActive ? 'bank 1' : 'bank 2') : '';
+        const { led, power, volume } = this.props;
+        const display = power ? (led ? 'bank 1' : 'bank 2') : '';
         const displayVolume = power ? `Vol: ${volume}` : '';
 
         return(
