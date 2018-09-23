@@ -63,7 +63,7 @@ class DrumPads extends Component {
                 item
                 container
                 xs={9}
-                spacing={8}
+                spacing={16}
             >
                 {sounds.map(obj => {
                     return(
