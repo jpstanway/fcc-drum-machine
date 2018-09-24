@@ -7,6 +7,10 @@
 body {
     font-family: 'Roboto', 'Arial', sans-serif;
     background-color: lighten(#efefef, 25%);
+
+    @media screen and (max-width: 430px) {
+        margin: 0;
+    }
 }
 
 #container {
@@ -14,6 +18,11 @@ body {
     max-width: 960px;
     height: auto;
     margin: 10vh auto;
+
+    @media screen and (max-width: 430px) {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 #drum-machine {
@@ -51,6 +60,15 @@ body {
             font-size: 1.2em;
             font-weight: 400;
             text-transform: uppercase;
+
+            @media screen and (max-width: 430px) {
+                font-size: 1.1em;
+            }
+        }
+
+        @media screen and (max-width: 430px) {
+            height: 100px;
+            margin: 5px;
         }
     }
 

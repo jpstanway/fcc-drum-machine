@@ -2,12 +2,19 @@
 body {
   font-family: 'Roboto', 'Arial', sans-serif;
   background-color: white; }
+  @media screen and (max-width: 430px) {
+    body {
+      margin: 0; } }
 
 #container {
   text-align: center;
   max-width: 960px;
   height: auto;
   margin: 10vh auto; }
+  @media screen and (max-width: 430px) {
+    #container {
+      width: 100%;
+      margin: 0; } }
 
 #drum-machine {
   height: 100%;
@@ -36,6 +43,13 @@ body {
     font-size: 1.2em;
     font-weight: 400;
     text-transform: uppercase; }
+    @media screen and (max-width: 430px) {
+      #interface #display-div #display {
+        font-size: 1.1em; } }
+  @media screen and (max-width: 430px) {
+    #interface #display-div {
+      height: 100px;
+      margin: 5px; } }
 
 #interface #controls {
   height: 80%; }
