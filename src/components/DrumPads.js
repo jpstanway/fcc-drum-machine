@@ -67,7 +67,7 @@ class DrumPads extends Component {
             >
                 {sounds.map(obj => {
                     return(
-                        <Grid item xs={6} md={4} key={obj.id}>
+                        <Grid item xs={6} sm={4} key={obj.id}>
                             <Button
                                 id={obj.id}
                                 className="drum-pad button"
